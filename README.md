@@ -42,6 +42,9 @@ The generated `AppSettings` class includes:
 - **Nested classes**: Complex JSON objects become nested configuration classes
 - **Type safety**: Automatic type conversion with safe defaults
 - **Array support**: JSON arrays become typed arrays in C#
+- **Property name sanitization**: Handles properties with dots, spaces, and special characters
+- **Proper indentation**: Clean, readable generated code
+- **Missing imports**: Includes all necessary using statements
 
 ## Example
 

@@ -30,7 +30,6 @@ dotnet tool install -g --add-source .\src\GuardAppSettings\bin\Debug\ GuardAppSe
 ### 4. Test the Tool
 Navigate to the example directory and run:
 ```bash
-cd /mnt/c/Dev/Learning/GuardAppSettings
 dotnet gas create --project ./example --target ./output
 ```
 
