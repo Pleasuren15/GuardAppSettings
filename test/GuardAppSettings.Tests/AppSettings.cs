@@ -1,7 +1,6 @@
-using System;
 using Microsoft.Extensions.Configuration;
 
-namespace AppSettings;
+namespace GuardAppSettings.Tests;
 
 public class AppSettings
 {
@@ -50,8 +49,13 @@ public class AppSettings
             }
 
             public string Default => _configuration["Logging:LogLevel:Default"] ?? string.Empty;
+            /// <summary>Configuration key: "Logging:LogLevel:Microsoft.AspNetCore"</summary>
             public string MicrosoftAspNetCore => _configuration["Logging:LogLevel:Microsoft.AspNetCore"] ?? string.Empty;
+
+            /// <summary>Access configuration values by exact key name (useful for keys with special characters)</summary>
+            public string this[string key] => _configuration["Logging:LogLevel:" + key] ?? string.Empty;
         }
+
     }
 
     public ApiSettingsSettings ApiSettings => new ApiSettingsSettings(_configuration);
@@ -71,5 +75,5 @@ public class AppSettings
         public bool EnableCaching => bool.TryParse(_configuration["ApiSettings:EnableCaching"], out var value) && value;
     }
 
-    public string[] FeatureFlags => _configuration.GetSection("FeatureFlags").Get<string[]>() ?? Array.Empty<string>();
+    public string[] FeatureFlags => _configuration.GetSection("FeatureFlags").GetChildren().Select(c => c.Value ?? string.Empty).ToArray();
 }
