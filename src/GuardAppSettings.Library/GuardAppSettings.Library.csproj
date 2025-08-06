@@ -5,7 +5,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <PackageId>GuardAppSettings.Library</PackageId>
-    <PackageVersion>1.0.0</PackageVersion>
+    <PackageVersion>1.0.0-ci.$(BUILD_NUMBER)</PackageVersion>
+    <PackageVersion Condition="'$(GITHUB_RUN_NUMBER)' != ''">1.0.0-ci.$(GITHUB_RUN_NUMBER)</PackageVersion>
     <Authors>GuardAppSettings</Authors>
     <Description>Library for generating strongly typed C# classes from appsettings.json files</Description>
     <PackageReadmeFile>README.md</PackageReadmeFile>
