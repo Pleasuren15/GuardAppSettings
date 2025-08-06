@@ -9,3 +9,5 @@
 /src/GuardAppSettings/bin/Debug/net9.0
 /src/GuardAppSettings/bin/Release/net9.0
 /src/GuardAppSettings/bin
+/test/GuardAppSettings.Tests/bin/Debug/net9.0
+/test/GuardAppSettings.Tests/obj
