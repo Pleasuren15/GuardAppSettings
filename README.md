@@ -148,6 +148,22 @@ public class MyService
 }
 ```
 
+## Complex Key Handling
+
+For configuration keys with special characters (like `"Microsoft.AspNetCore"`), the tool provides multiple access methods:
+
+1. **Generated Properties**: Converts `"Microsoft.AspNetCore"` to `MicrosoftAspNetCore`
+2. **XML Documentation**: Shows the original key in comments for complex properties  
+3. **Indexer Access**: Provides `this[string key]` for exact key matching
+
+```csharp
+// Generated property (recommended for most cases)
+var logLevel = appSettings.Logging.LogLevel.MicrosoftAspNetCore;
+
+// Indexer access (preserves exact key)
+var logLevel = appSettings.Logging.LogLevel["Microsoft.AspNetCore"];
+```
+
 ## Supported Types
 
 - **Strings**: Mapped to `string` properties with empty string defaults
@@ -156,7 +172,26 @@ public class MyService
 - **Objects**: Mapped to nested classes with the same pattern
 - **Arrays**: Mapped to typed arrays (currently supports string arrays)
 
+## Property Name Generation
+
+The tool intelligently handles various naming patterns:
+- **Simple names**: `ConnectionString` → `ConnectionString`
+- **Dotted names**: `Microsoft.AspNetCore` → `MicrosoftAspNetCore`
+- **Hyphenated names**: `log-level` → `LogLevel`
+- **Spaced names**: `My Setting` → `MySetting`
+
 ## Requirements
 
+### For the CLI Tool
 - .NET 9.0 or later
-- Microsoft.Extensions.Configuration package in your target project
+
+### For Projects Using Generated Classes
+Your project that uses the generated `AppSettings.cs` classes needs these packages:
+
+```xml
+<PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.0" />
+<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="9.0.0" />
+<PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.0" />
+```
+
+The generated code uses only core configuration APIs, so no additional binding packages are required.

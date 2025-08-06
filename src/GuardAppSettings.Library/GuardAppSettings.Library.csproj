@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <PackageId>GuardAppSettings.Library</PackageId>
+    <PackageVersion>1.0.0</PackageVersion>
+    <Authors>GuardAppSettings</Authors>
+    <Description>Library for generating strongly typed C# classes from appsettings.json files</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Text.Json" Version="9.0.0" />
+  </ItemGroup>
+
+  <!-- Reference the generator from the CLI project -->
+  <ItemGroup>
+    <Compile Include="../GuardAppSettings/AppSettingsGenerator.cs" Link="AppSettingsGenerator.cs" />
+  </ItemGroup>
+
+</Project>
