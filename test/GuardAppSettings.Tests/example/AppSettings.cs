@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Configuration;
 
-namespace GuardAppSettings.Tests;
+namespace GuardAppSettings.Tests.example;
 
 public class AppSettings
 {
