@@ -11,3 +11,4 @@
 /src/GuardAppSettings/bin
 /test/GuardAppSettings.Tests/bin/Debug/net9.0
 /test/GuardAppSettings.Tests/obj
+/obj
