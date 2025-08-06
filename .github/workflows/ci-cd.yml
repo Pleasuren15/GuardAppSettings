@@ -30,7 +30,7 @@ jobs:
       run: dotnet test GuardAppSettings.sln --no-build --configuration Release --verbosity normal
       
     - name: Pack NuGet package
-      run: dotnet pack src/GuardAppSettings.Library/GuardAppSettings.Library.csproj --no-build --configuration Release --output ./artifacts
+      run: dotnet pack src/GuardAppSettings.Library/GuardAppSettings.Library.csproj --configuration Release --output ./artifacts
       
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
