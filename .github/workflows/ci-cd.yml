@@ -21,13 +21,13 @@ jobs:
         dotnet-version: '9.0.x'
         
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore GuardAppSettings.sln
       
     - name: Build
-      run: dotnet build --no-restore --configuration Release
+      run: dotnet build GuardAppSettings.sln --no-restore --configuration Release
       
     - name: Test
-      run: dotnet test --no-build --configuration Release --verbosity normal
+      run: dotnet test GuardAppSettings.sln --no-build --configuration Release --verbosity normal
       
     - name: Pack NuGet package
       run: dotnet pack src/GuardAppSettings.Library/GuardAppSettings.Library.csproj --no-build --configuration Release --output ./artifacts
