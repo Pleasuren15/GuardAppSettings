@@ -8,10 +8,16 @@
     <PackageVersion>1.0.0</PackageVersion>
     <Authors>GuardAppSettings</Authors>
     <Description>Library for generating strongly typed C# classes from appsettings.json files</Description>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="System.Text.Json" Version="9.0.0" />
+  </ItemGroup>
+
+  <!-- Include README.md in the package -->
+  <ItemGroup>
+    <None Include="../../README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 
   <!-- Reference the generator from the CLI project -->
