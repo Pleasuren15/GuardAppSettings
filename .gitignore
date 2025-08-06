@@ -6,3 +6,6 @@
 /src/.vs
 /src/GuardAppSettings/obj
 /.claude
+/src/GuardAppSettings/bin/Debug/net9.0
+/src/GuardAppSettings/bin/Release/net9.0
+/src/GuardAppSettings/bin
